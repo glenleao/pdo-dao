@@ -2,10 +2,11 @@
 
 require_once("config.php");
 
-$sql = new Sql();
+$root = new Prestadores();
 
-$expositores = $sql->select("SELECT * FROM tbl_expositores");
+$root->loadById(2);
 
-echo json_encode($expositores);
+echo $root;
+
 
  ?>
