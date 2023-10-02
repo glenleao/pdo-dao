@@ -118,25 +118,33 @@ class Expositores {
 			":ID"=>$id 
 		));
 
-		if (count($results) > 0)
-			$row = $results[0];
-
-		$this->setID($row['ID']);
-		$this->setNome_fantasia($row['Nome_fantasia']);
-		$this->setCEP($row['CEP']);
-		$this->setLogradouro($row['Logradouro']);
-		$this->setNumero($row['Numero']);
-		$this->setComplemento($row['Complemento']);
-		$this->setBairro($row['Bairro']);
-		$this->setMunicipio($row['Municipio']);
-		$this->setUF($row['UF']);
-		$this->setPais($row['Pais']);
-		$this->setStand($row['Stand']);
-		$this->setLocalizacao($row['Localizacao']);
+			if (count($results) > 0){
+				$row = $results[0];
+			
+			$this->setID($row['ID']);
+			$this->setNome_fantasia($row['Nome_fantasia']);
+			$this->setCEP($row['CEP']);
+			$this->setLogradouro($row['Logradouro']);
+			$this->setNumero($row['Numero']);
+			$this->setComplemento($row['Complemento']);
+			$this->setBairro($row['Bairro']);
+			$this->setMunicipio($row['Municipio']);
+			$this->setUF($row['UF']);
+			$this->setPais($row['Pais']);
+			$this->setStand($row['Stand']);
+			$this->setLocalizacao($row['Localização']);
+		}	
 	}
 
-	
-}
+
+	// aula 66
+
+	public static function getList(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tbl_expositores ORDER BY Nome_fantasia;");
+	}
+	// fim aula 66
 
 public function __toString(){
 
@@ -152,7 +160,8 @@ public function __toString(){
 		"UF"=>$this->getUF(),
 		"Pais"=>$this->getPais(),
 		"Stand"=>$this->getStand(),
-		"Localizacao"=>$this->getLocalizacao()
+		"Localização"=>$this->getLocalizacao()
 
 	));
+}
 }

@@ -53,6 +53,15 @@ class Usuarios {
 		}
 	}
 
+	// aula 66
+
+	public static function getList(){
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_usuarios ORDER BY deslogin;");
+	}
+	// fim aula 66
+
 	public function __toString(){
 
 		return json_encode(array(
